@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LocoEnsayo - AI-Driven Rehearsal Environments</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127917;</text></svg>">
+  <meta name="description" content="AI-driven rehearsal environments where students interact with simulated organisations populated by AI characters. Privacy-first. Local inference. Part of LocoLab.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0a0a0b;
+      --bg-secondary: #111114;
+      --bg-card: #16161a;
+      --bg-card-hover: #1c1c21;
+      --text-primary: #e8e6e3;
+      --text-secondary: #9a9a9e;
+      --text-muted: #5e5e63;
+      --accent: #eab308;
+      --accent-glow: rgba(234, 179, 8, 0.15);
+      --accent-secondary: #facc15;
+      --green: #22c55e;
+      --green-dim: rgba(34, 197, 94, 0.12);
+      --border: #1e1e23;
+      --border-light: #2a2a30;
+      --font-mono: 'JetBrains Mono', monospace;
+      --font-sans: 'DM Sans', -apple-system, sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Noise texture overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(10, 10, 11, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--text-primary);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-logo .icon { font-size: 1.3rem; }
+    .nav-logo .loco { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--text-primary); }
+
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text-primary);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 8rem 2rem 4rem;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+      animation: pulse 6s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.6; transform: translateX(-50%) scale(1); }
+      50% { opacity: 1; transform: translateX(-50%) scale(1.1); }
+    }
+
+    .hero-badge {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--accent);
+      background: var(--accent-glow);
+      border: 1px solid rgba(234, 179, 8, 0.25);
+      padding: 0.4rem 1rem;
+      border-radius: 100px;
+      margin-bottom: 2rem;
+      position: relative;
+      letter-spacing: 0.05em;
+    }
+
+    .hero h1 {
+      font-family: var(--font-mono);
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    .hero h1 .highlight { color: var(--accent); }
+    .hero h1 .icon { font-size: clamp(2rem, 5vw, 3.5rem); }
+
+    .hero .tagline {
+      font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+      color: var(--text-secondary);
+      max-width: 680px;
+      margin-bottom: 2.5rem;
+      position: relative;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      position: relative;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.75rem;
+      border-radius: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.25s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #000;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-secondary);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 30px rgba(234, 179, 8, 0.25);
+    }
+
+    .btn-secondary {
+      background: var(--bg-card);
+      color: var(--text-primary);
+      border: 1px solid var(--border-light);
+    }
+
+    .btn-secondary:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--text-muted);
+      transform: translateY(-1px);
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 6rem 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: var(--font-mono);
+      font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .section-desc {
+      color: var(--text-secondary);
+      max-width: 600px;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      margin-bottom: 3rem;
+    }
+
+    /* SCENARIO CARDS */
+    .scenario-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .scenario-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2.5rem;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .scenario-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .scenario-card:hover {
+      border-color: var(--border-light);
+      transform: translateY(-2px);
+    }
+
+    .scenario-card:hover::before { opacity: 1; }
+
+    .scenario-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .scenario-status {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.2rem 0.6rem;
+      border-radius: 100px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+
+    .status-live { background: var(--green-dim); color: var(--green); }
+    .status-soon { background: var(--accent-glow); color: var(--accent); }
+
+    .scenario-card h3 {
+      font-family: var(--font-mono);
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    .scenario-card p {
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+      line-height: 1.6;
+      margin-bottom: 0.75rem;
+    }
+
+    .scenario-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .scenario-tag {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-muted);
+    }
+
+    /* WHY REHEARSAL */
+    .rehearsal-section {
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 6rem 2rem;
+    }
+
+    .rehearsal-section .inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .rehearsal-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .rehearsal-card {
+      padding: 2rem;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--bg-primary);
+      transition: all 0.3s;
+    }
+
+    .rehearsal-card:hover {
+      border-color: var(--border-light);
+    }
+
+    .rehearsal-icon {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .rehearsal-card h3 {
+      font-family: var(--font-mono);
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .rehearsal-card p {
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    /* HOW IT WORKS */
+    .how-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .how-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .how-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .how-card:hover {
+      border-color: var(--border-light);
+      transform: translateY(-2px);
+    }
+
+    .how-card:hover::before { opacity: 1; }
+
+    .how-number {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+      background: var(--accent-glow);
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      font-weight: 700;
+    }
+
+    .how-card h3 {
+      font-family: var(--font-mono);
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    .how-card p {
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    /* CONTACT */
+    .contact-section {
+      text-align: center;
+      padding: 6rem 2rem 8rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .contact-section .section-label,
+    .contact-section .section-title,
+    .contact-section .section-desc {
+      text-align: center;
+      max-width: none;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-text {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--text-secondary); }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: block; }
+
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--bg-primary);
+        border-bottom: 1px solid var(--border);
+        padding: 1.5rem 2rem;
+        gap: 1rem;
+      }
+
+      .scenario-grid { grid-template-columns: 1fr; }
+      .rehearsal-grid { grid-template-columns: 1fr; }
+      .how-grid { grid-template-columns: 1fr; }
+      .footer-inner { flex-direction: column; text-align: center; }
+    }
+
+    /* SCROLL ANIMATIONS */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo"><span class="icon">&#127917;</span> <span class="loco">Loco</span>Ensayo</a>
+    <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button>
+    <ul class="nav-links">
+      <li><a href="#scenarios">Scenarios</a></li>
+      <li><a href="#why">Why Rehearsal?</a></li>
+      <li><a href="#how">How It Works</a></li>
+      <li><a href="#educators">For Educators</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="/docs/">Docs</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-badge">Ensayo = Rehearsal &middot; Part of LocoLab &middot; Privacy First</div>
+    <h1><span class="icon">&#127917;</span> <span class="highlight">Loco</span>Ensayo</h1>
+    <p class="tagline">
+      AI-driven rehearsal environments where students interact with simulated organisations populated by AI characters. Each character has a role, a personality, and a story. Your students bring the questions.
+    </p>
+    <div class="hero-actions">
+      <a href="#scenarios" class="btn btn-primary">Explore Scenarios</a>
+      <a href="/docs/" class="btn btn-secondary">Read the Docs</a>
+    </div>
+  </section>
+
+  <!-- SCENARIOS -->
+  <section id="scenarios">
+    <div class="section-label fade-up">Scenarios</div>
+    <h2 class="section-title fade-up">Simulated organisations. Real conversations.</h2>
+    <p class="section-desc fade-up">
+      Each scenario is a fully realised organisation with AI employees. Students interview, investigate, and analyse &mdash; just like they would in a real workplace.
+    </p>
+    <div class="scenario-grid">
+      <a href="https://cloudcore.eduserver.au" class="scenario-card fade-up">
+        <div class="scenario-icon">&#9729;&#65039;</div>
+        <span class="scenario-status status-live">Live</span>
+        <h3>CloudCore Networks</h3>
+        <p>A simulated IT services firm with AI chatbot employees. Students interview staff for security audits, requirements gathering, and business analysis.</p>
+        <p>Each employee has a unique backstory and personality. The information students need is distributed across multiple people &mdash; just like reality.</p>
+        <div class="scenario-tags">
+          <span class="scenario-tag">Security Audits</span>
+          <span class="scenario-tag">Requirements Gathering</span>
+          <span class="scenario-tag">Business Analysis</span>
+          <span class="scenario-tag">IS / IT</span>
+        </div>
+      </a>
+      <div class="scenario-card fade-up">
+        <div class="scenario-icon">&#9992;&#65039;</div>
+        <span class="scenario-status status-soon">Coming Soon</span>
+        <h3>Pinnacles Travel</h3>
+        <p>A simulated travel and tourism agency for hospitality and tourism education. AI employees across sales, operations, and management.</p>
+        <p>Currently in development. Designed for units in tourism management, hospitality operations, and customer service.</p>
+        <div class="scenario-tags">
+          <span class="scenario-tag">Tourism</span>
+          <span class="scenario-tag">Hospitality</span>
+          <span class="scenario-tag">Customer Service</span>
+          <span class="scenario-tag">Event Management</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY REHEARSAL -->
+  <div class="rehearsal-section" id="why">
+    <div class="inner">
+      <div class="section-label fade-up">Why Rehearsal?</div>
+      <h2 class="section-title fade-up">Conversation, not delegation.</h2>
+      <p class="section-desc fade-up">
+        Case studies give students facts. LocoEnsayo gives them conversations. The AI characters don't hand over answers &mdash; they play their roles, and students have to do the professional work of asking, listening, and analysing.
+      </p>
+      <div class="rehearsal-grid">
+        <div class="rehearsal-card fade-up">
+          <div class="rehearsal-icon">&#128483;&#65039;</div>
+          <h3>Active, Not Passive</h3>
+          <p>Students don't read about stakeholders. They talk to them. They ask follow-up questions. They deal with inconsistencies between what different people say. That's the real skill.</p>
+        </div>
+        <div class="rehearsal-card fade-up">
+          <div class="rehearsal-icon">&#128274;</div>
+          <h3>Privacy by Design</h3>
+          <p>All AI inference runs locally via Ollama. No student data leaves the institution. No cloud APIs. No tracking. Full institutional control over the infrastructure.</p>
+        </div>
+        <div class="rehearsal-card fade-up">
+          <div class="rehearsal-icon">&#127891;</div>
+          <h3>Mirrors Real Practice</h3>
+          <p>In real projects, the hardest part is understanding the people and the organisation. LocoEnsayo lets students practise exactly that &mdash; in a safe, repeatable environment.</p>
+        </div>
+        <div class="rehearsal-card fade-up">
+          <div class="rehearsal-icon">&#128200;</div>
+          <h3>Assess the Analysis</h3>
+          <p>What matters is what students do with the information, not the raw transcripts. Assess their professional judgement, their recommendations, their ability to synthesise conflicting input.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <section id="how">
+    <div class="section-label fade-up">How It Works</div>
+    <h2 class="section-title fade-up">Simple architecture. Rich interactions.</h2>
+    <p class="section-desc fade-up">
+      Each AI character is a fine-tuned small language model served locally. Students chat through a web interface. Everything runs on-premises.
+    </p>
+    <div class="how-grid">
+      <div class="how-card fade-up">
+        <div class="how-number">1</div>
+        <h3>Fine-Tuned Characters</h3>
+        <p>Each AI employee is a small language model fine-tuned with a specific backstory, personality, knowledge set, and conversational style. They stay in character.</p>
+      </div>
+      <div class="how-card fade-up">
+        <div class="how-number">2</div>
+        <h3>Local Inference</h3>
+        <p>Models run locally via Ollama. No cloud. No API keys. No student data leaves the institution. BYOK options available for educators who prefer commercial models.</p>
+      </div>
+      <div class="how-card fade-up">
+        <div class="how-number">3</div>
+        <h3>Web Chat Interface</h3>
+        <p>Students interact through a familiar chat interface. Pick an employee, start a conversation. The AI remembers context within the session.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOR EDUCATORS -->
+  <section id="educators">
+    <div class="section-label fade-up">For Educators</div>
+    <h2 class="section-title fade-up">Drop into any unit.</h2>
+    <p class="section-desc fade-up">
+      LocoEnsayo scenarios map to common learning outcomes across multiple disciplines. Choose a scenario, frame a task, and let students engage.
+    </p>
+    <div class="scenario-grid">
+      <div class="rehearsal-card fade-up">
+        <div class="rehearsal-icon">&#128187;</div>
+        <h3>Information Systems</h3>
+        <p>Requirements elicitation, security audits, business process analysis, systems analysis and design.</p>
+      </div>
+      <div class="rehearsal-card fade-up">
+        <div class="rehearsal-icon">&#128188;</div>
+        <h3>Management</h3>
+        <p>Organisational analysis, change management, stakeholder management, leadership assessment.</p>
+      </div>
+      <div class="rehearsal-card fade-up">
+        <div class="rehearsal-icon">&#127758;</div>
+        <h3>Tourism &amp; Hospitality</h3>
+        <p>Service quality evaluation, operations analysis, customer experience design, event planning.</p>
+      </div>
+      <div class="rehearsal-card fade-up">
+        <div class="rehearsal-icon">&#128202;</div>
+        <h3>Marketing &amp; Accounting</h3>
+        <p>Customer research, brand analysis, internal controls, risk assessment, compliance evaluation.</p>
+      </div>
+    </div>
+    <div class="hero-actions fade-up" style="margin-top: 2rem;">
+      <a href="/docs/for-educators/" class="btn btn-primary">Educator Guide</a>
+      <a href="/docs/about/" class="btn btn-secondary">Learn More</a>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact-section" id="contact">
+    <div class="section-label fade-up">Contact</div>
+    <h2 class="section-title fade-up">Get in touch.</h2>
+    <p class="section-desc fade-up">
+      LocoEnsayo is a <strong>School of Management and Marketing</strong> initiative at <strong>Curtin University</strong>, part of the <a href="https://locolabo.org" style="color: var(--accent); text-decoration: none;">LocoLab</a> applied AI research lab. Whether you're an educator wanting to use LocoEnsayo in your teaching, or a researcher interested in collaboration &mdash; we'd love to hear from you.
+    </p>
+    <div class="hero-actions fade-up" style="margin-top: 1.5rem;">
+      <a href="mailto:michael.borck@curtin.edu.au" class="btn btn-primary">Email Michael Borck</a>
+      <a href="https://github.com/michael-borck/loco-ensayo" class="btn btn-secondary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        View on GitHub
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-text">&copy; 2026 LocoEnsayo &middot; A LocoLab Project &middot; Curtin University</span>
+      <ul class="footer-links">
+        <li><a href="https://github.com/michael-borck/loco-ensayo">GitHub</a></li>
+        <li><a href="/docs/">Docs</a></li>
+        <li><a href="https://locolabo.org">LocoLab</a></li>
+        <li><a href="mailto:michael.borck@curtin.edu.au">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- Scroll animation observer -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
