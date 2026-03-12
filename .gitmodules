@@ -1,0 +1,6 @@
+[submodule "cloudcore"]
+	path = cloudcore
+	url = git@github.com:michael-borck/cloudcore.git
+[submodule "cloudcore-api"]
+	path = cloudcore-api
+	url = git@github.com:michael-borck/cloudcore-api.git
