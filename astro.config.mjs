@@ -20,6 +20,7 @@ export default defineConfig({
           label: 'Scenarios',
           items: [
             { label: 'CloudCore Networks', slug: 'cloudcore' },
+            { label: 'TalkBuddy', slug: 'talk-buddy' },
             { label: 'Pinnacles Travel', slug: 'pinnacles-travel' },
           ],
         },

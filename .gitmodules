@@ -4,3 +4,6 @@
 [submodule "cloudcore-api"]
 	path = cloudcore-api
 	url = git@github.com:michael-borck/cloudcore-api.git
+[submodule "talk-buddy"]
+	path = talk-buddy
+	url = git@github.com:michael-borck/talk-buddy.git
