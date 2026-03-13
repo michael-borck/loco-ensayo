@@ -17,10 +17,6 @@ export default defineConfig({
       customCss: ['./src/styles/custom.css'],
       sidebar: [
         {
-          label: 'About',
-          slug: 'about',
-        },
-        {
           label: 'Scenarios',
           items: [
             { label: 'CloudCore Networks', slug: 'cloudcore' },
