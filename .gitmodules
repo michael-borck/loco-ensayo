@@ -7,3 +7,6 @@
 [submodule "talk-buddy"]
 	path = talk-buddy
 	url = git@github.com:michael-borck/talk-buddy.git
+[submodule "technova-sim"]
+	path = technova-sim
+	url = git@github.com:michael-borck/technova-sim.git
