@@ -10,3 +10,9 @@
 [submodule "technova-sim"]
 	path = technova-sim
 	url = git@github.com:michael-borck/technova-sim.git
+[submodule "retailflow"]
+	path = retailflow
+	url = git@github.com:michael-borck/retailflow.git
+[submodule "sim-boking-api"]
+	path = sim-boking-api
+	url = git@github.com:michael-borck/sim-boking-api.git

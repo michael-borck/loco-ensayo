@@ -1,11 +1,11 @@
 ---
-title: Pinnacles Travel (Coming Soon)
-description: An upcoming simulated travel agency scenario for hospitality and tourism education.
+title: Pinnacle Events (Coming Soon)
+description: An upcoming simulated event planning company scenario for hospitality and tourism education.
 ---
 
 ## Overview
 
-Pinnacles Travel is the next scenario coming to LocoEnsayo — a simulated travel and tourism agency with AI employees, designed for hospitality and tourism education.
+Pinnacle Events is the next scenario coming to LocoEnsayo — a simulated event planning and management company based in Perth, with AI employees, designed for hospitality, tourism, and event management education.
 
 :::note
 Pinnacles Travel is currently in development. This page will be updated as the scenario takes shape.
@@ -13,18 +13,18 @@ Pinnacles Travel is currently in development. This page will be updated as the s
 
 ## The Concept
 
-Like CloudCore Networks, Pinnacles Travel will be a fully simulated organisation with AI chatbot employees. Students in hospitality, tourism, and related disciplines will interact with staff across the agency to practise industry-specific skills.
+Like CloudCore Networks, Pinnacle Events will be a fully simulated organisation with AI chatbot employees. Students in hospitality, tourism, event management, and related disciplines will interact with staff across the company to practise industry-specific skills.
 
 ## Planned Features
 
-- **AI travel consultants** with distinct personalities and specialisations
+- **AI event planners and coordinators** with distinct personalities and specialisations
 - **Management and operations staff** for business-focused interactions
 - **Customer service scenarios** for frontline hospitality skills
-- **Destination knowledge** covering Western Australian tourism (including the Pinnacles)
+- **Event portfolio** covering corporate conferences, weddings, and social events across Perth
 
 ## Target Disciplines
 
-Pinnacles Travel is being designed for units in:
+Pinnacle Events is being designed for units in:
 
 - **Tourism management**
 - **Hospitality operations**
@@ -34,7 +34,7 @@ Pinnacles Travel is being designed for units in:
 
 ## Technology
 
-Pinnacles Travel will use the same local-inference architecture as CloudCore Networks:
+Pinnacle Events will use the same local-inference architecture as CloudCore Networks:
 
 - Fine-tuned small language models for each character
 - Ollama for local inference

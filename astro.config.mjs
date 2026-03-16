@@ -22,7 +22,8 @@ export default defineConfig({
             { label: 'CloudCore Networks', slug: 'cloudcore' },
             { label: 'TalkBuddy', slug: 'talk-buddy' },
             { label: 'TechNova Systems', slug: 'technova' },
-            { label: 'Pinnacles Travel', slug: 'pinnacles-travel' },
+            { label: 'RetailFlow', slug: 'retailflow' },
+            { label: 'Pinnacle Events', slug: 'pinnacles-travel' },
           ],
         },
         {
