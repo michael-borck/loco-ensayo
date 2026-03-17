@@ -37,9 +37,24 @@ All inference runs locally. No student data leaves the institution. No cloud API
 
 LocoEnsayo is a project of [LocoLab](https://locolabo.org), an applied AI research lab at Curtin University's School of Management and Marketing. LocoLab explores practical, accessible AI for education — from fine-tuned local models ([LocoLLM](https://locollm.org)) to simulated teaching environments.
 
-## Current Scenarios
+## Scenarios — Professional Rehearsal
+
+Students interact with AI-populated organisations to practise real-world professional skills.
 
 | Scenario | Domain | Status |
 |----------|--------|--------|
 | [CloudCore Networks](/docs/cloudcore/) | IT Services / Security | Live |
-| [Pinnacles Travel](/docs/pinnacles-travel/) | Hospitality / Tourism | Coming Soon |
+| [TalkBuddy](/docs/talk-buddy/) | Difficult Conversations | Live |
+| [TechNova Systems](/docs/technova/) | Technology Consulting | Live |
+| [RetailFlow](/docs/retailflow/) | Retail Operations | Live |
+| [Pinnacle Events](/docs/pinnacles-travel/) | Events / Tourism | Coming Soon |
+
+## AI Development Toolkit — Developer Rehearsal
+
+Students learn to build AI applications through progressive Python packages. A different kind of rehearsal: practising *building* AI systems rather than *interacting* with them.
+
+| Package | What Students Learn | Install |
+|---------|-------------------|---------|
+| [SimpleBot](/docs/simplebot/) | First LLM interaction — one function, one response | `pip install simplebot` |
+| [HandsOnAI](/docs/hands-on-ai/) | Chat, RAG, and agent patterns — the three pillars of AI applications | `pip install hands-on-ai` |
+| [SimLab](/docs/sim-lab/) | Complex systems modelling — business, ecological, and statistical simulations | `pip install sim-lab` |

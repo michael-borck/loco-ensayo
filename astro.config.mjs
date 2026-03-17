@@ -27,6 +27,14 @@ export default defineConfig({
           ],
         },
         {
+          label: 'AI Development Toolkit',
+          items: [
+            { label: 'SimpleBot', slug: 'simplebot' },
+            { label: 'HandsOnAI', slug: 'hands-on-ai' },
+            { label: 'SimLab', slug: 'sim-lab' },
+          ],
+        },
+        {
           label: 'For Educators',
           slug: 'for-educators',
         },
