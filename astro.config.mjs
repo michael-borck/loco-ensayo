@@ -22,6 +22,12 @@ export default defineConfig({
       customCss: ['./src/styles/custom.css'],
       sidebar: [
         {
+          label: 'Internship Simulation',
+          items: [
+            { label: 'WorkReady', slug: 'workready' },
+          ],
+        },
+        {
           label: 'Scenarios',
           items: [
             { label: 'CloudCore Networks', slug: 'cloudcore' },
