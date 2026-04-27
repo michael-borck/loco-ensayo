@@ -1,0 +1,33 @@
+---
+title: LocoEnsayo
+description: AI-driven rehearsal environments where students interact with simulated organisations populated by AI characters.
+template: splash
+hero:
+  tagline: Rehearse the real world. The cast is AI. The judgement is yours.
+  actions:
+    - text: Explore Scenarios
+      link: /docs/cloudcore/
+      icon: right-arrow
+      variant: primary
+    - text: For Educators
+      link: /docs/for-educators/
+      icon: external
+      variant: secondary
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+<CardGrid stagger>
+  <Card title="Professional rehearsal scenarios" icon="puzzle">
+    Security audits, requirements gathering, business analysis — students interview AI-populated organisations and practise real professional skills before they face the real thing.
+  </Card>
+  <Card title="Conversation, not delegation" icon="comment">
+    The AI characters don't write the assignment. They play a role. Students must bring their own judgement, questions, and analysis — the AI provides the context.
+  </Card>
+  <Card title="AI development toolkit" icon="laptop">
+    SimpleBot, HandsOnAI, SimLab — progressive Python packages that teach students to build AI applications, not just use them.
+  </Card>
+  <Card title="Private by design" icon="approve-check">
+    All inference runs locally via Ollama. No student data leaves the institution. No cloud APIs. No tracking.
+  </Card>
+</CardGrid>
