@@ -9,6 +9,11 @@ export default defineConfig({
       title: 'LocoEnsayo',
       description: 'AI-driven rehearsal environments for teaching and learning',
       favicon: '/favicon.svg',
+      logo: {
+        alt: 'LocoEnsayo',
+        src: './src/assets/ensayo.svg',
+        replacesTitle: false,
+      },
       social: [
         { icon: 'external', label: 'Home', href: 'https://locoensayo.org' },
         { icon: 'external', label: 'LocoLab', href: 'https://locolabo.org' },
