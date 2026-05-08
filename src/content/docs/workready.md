@@ -81,4 +81,4 @@ The simulation generates structured interaction data: application outcomes, stag
 
 Visit [workready.eduserver.au](https://workready.eduserver.au) and begin the Ink primer. Your educator will provide your application instructions and any company-specific briefing materials.
 
-Educators: see the [For Educators](/docs/for-educators/) page for deployment and configuration guidance.
+Educators: see the [For Educators](/for-educators/) page for deployment and configuration guidance.

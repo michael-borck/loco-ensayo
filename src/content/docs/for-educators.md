@@ -57,7 +57,7 @@ LocoEnsayo scenarios are designed to align with common unit learning outcomes ac
 ## How to Use in Your Unit
 
 ### 1. Choose a Scenario
-Select the scenario that best fits your unit. [CloudCore Networks](/docs/cloudcore/) is available now for IT and business units. [Pinnacles Travel](/docs/pinnacles-travel/) is coming soon for hospitality and tourism.
+Select the scenario that best fits your unit. [CloudCore Networks](/cloudcore/) is available now for IT and business units. [Pinnacles Travel](/pinnacles-travel/) is coming soon for hospitality and tourism.
 
 ### 2. Design the Task
 Frame an assessment task around the scenario. For example:
