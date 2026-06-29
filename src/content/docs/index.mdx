@@ -7,10 +7,14 @@ hero:
   image:
     file: ../../assets/ensayo.svg
   actions:
+    - text: "Ensayo: the simulation generator"
+      link: https://ensayo.locoensayo.org
+      icon: external
+      variant: primary
     - text: Explore Scenarios
       link: /cloudcore/
       icon: right-arrow
-      variant: primary
+      variant: secondary
     - text: For Educators
       link: /for-educators/
       icon: external
@@ -18,6 +22,15 @@ hero:
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
+
+<a class="ensayo-banner" href="https://ensayo.locoensayo.org" target="_blank" rel="noopener noreferrer">
+  <div>
+    <p class="ensayo-banner__eyebrow">★ Live · Try it now</p>
+    <p class="ensayo-banner__title">Ensayo: the simulation generator</p>
+    <p class="ensayo-banner__sub">Build your own AI-populated rehearsal scenarios — open the live generator.</p>
+  </div>
+  <span class="ensayo-banner__cta">Open Ensayo →</span>
+</a>
 
 <CardGrid stagger>
   <Card title="Professional rehearsal scenarios" icon="puzzle">
