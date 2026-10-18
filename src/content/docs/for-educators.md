@@ -84,6 +84,6 @@ What matters is what students do with the information, not the raw conversations
 
 ## Contact
 
-For support integrating LocoEnsayo into your teaching, or to discuss new scenarios for your discipline, contact [Michael Borck](mailto:michael.borck@curtin.edu.au) at Curtin University's School of Management and Marketing.
+For support integrating LocoEnsayo into your teaching, or to discuss new scenarios for your discipline, contact [Michael Borck](mailto:michael.borck@curtin.edu.au) at LocoLabo.
 
-LocoEnsayo is a [LocoLab](https://locolabo.org) project.
+LocoEnsayo is a [LocoLabo](https://locolabo.org) project.

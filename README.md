@@ -41,10 +41,10 @@ Or if already cloned:
 git submodule update --init --recursive
 ```
 
-## Part of LocoLab
+## Part of LocoLabo
 
-LocoEnsayo is part of the [LocoLab](https://locolabo.org) research group exploring local AI for education.
+LocoEnsayo is part of the [LocoLabo](https://locolabo.org) research group exploring local AI for education.
 
 - [LocoLLM](https://locollm.org) — Local LLM fine-tuning and routing
-- [LocoBench](https://locobench.org) — GPU benchmarking for small models
+- [LocoBanco](https://locobanco.org) — GPU benchmarking for small models
 - [LocoConvoy](https://lococonvoy.org) — Multi-GPU research

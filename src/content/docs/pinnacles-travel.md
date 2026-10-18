@@ -42,4 +42,4 @@ Pinnacle Events will use the same local-inference architecture as CloudCore Netw
 
 ## Get Involved
 
-If you're an educator in hospitality or tourism and want to help shape this scenario, we'd love to hear from you. Contact [Michael Borck](mailto:michael.borck@curtin.edu.au) at Curtin University.
+If you're an educator in hospitality or tourism and want to help shape this scenario, we'd love to hear from you. Contact [Michael Borck](mailto:michael.borck@curtin.edu.au) at LocoLabo.

@@ -15,7 +15,7 @@ export default defineConfig({
       },
       social: [
         { icon: 'external', label: 'Home', href: 'https://locoensayo.org' },
-        { icon: 'external', label: 'LocoLab', href: 'https://locolabo.org' },
+        { icon: 'external', label: 'LocoLabo', href: 'https://locolabo.org' },
         { icon: 'github', label: 'GitHub', href: 'https://github.com/michael-borck/loco-ensayo' },
       ],
       customCss: ['./src/styles/custom.css'],
@@ -51,7 +51,7 @@ export default defineConfig({
         {
           label: 'Research',
           items: [
-            { label: 'LocoLab', link: 'https://locolabo.org' },
+            { label: 'LocoLabo', link: 'https://locolabo.org' },
             { label: 'LocoLLM', link: 'https://locollm.org' },
           ],
         },
