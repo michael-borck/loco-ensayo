@@ -5,7 +5,7 @@ description: A simulated ISP with AI chatbot employees for security audits, requ
 
 ## Overview
 
-CloudCore Networks is a simulated IT services firm — an internet service provider (ISP) with a team of AI chatbot employees. Students interact with these characters to practise professional skills in a realistic but safe environment.
+CloudCore Networks is a simulated IT services firm, an internet service provider (ISP) with a team of AI chatbot employees. Students interact with these characters to practise professional skills in a realistic but safe environment.
 
 **Website:** [cloudcore.eduserver.au](https://cloudcore.eduserver.au)
 
@@ -20,31 +20,31 @@ CloudCore Networks provides internet, hosting, and managed IT services to small 
 
 ## AI Employees
 
-Each CloudCore employee is an AI chatbot with a unique **backstory, personality, and role**. They respond to questions the way a real employee would — sometimes helpfully, sometimes evasively, sometimes revealing things they probably shouldn't.
+Each CloudCore employee is an AI chatbot with a unique backstory, personality, and role. They respond to questions the way a real employee would: sometimes helpfully, sometimes evasively, and sometimes revealing things they probably shouldn't.
 
-Students don't get a file of facts. They get conversations. The information they need is distributed across multiple people, just like in a real organisation.
+Students gather what they need through conversations. The information is distributed across multiple people, just like in a real organisation.
 
 ## Use Cases
 
 ### Security Audits
-Interview CloudCore staff to identify security vulnerabilities. Who has access to what? What are the password policies? How is customer data handled? The answers are there — students just have to ask the right questions.
+Interview CloudCore staff to identify security vulnerabilities. Who has access to what? What are the password policies? How is customer data handled? The answers are there, but students have to ask the right questions.
 
 ### Requirements Gathering
-Talk to stakeholders across the organisation to understand what a new system or process needs to do. Different employees have different needs and different perspectives. Reconciling those is the real skill.
+Talk to stakeholders across the organisation to understand what a new system or process needs to do. Different employees have different needs and different perspectives. Reconciling those needs is part of the work.
 
 ### Business Analysis
-Explore organisational challenges through structured conversations. Map processes, identify pain points, and develop recommendations — all based on what the AI employees tell you.
+Explore organisational challenges through structured conversations. Map processes, identify pain points, and develop recommendations, all based on what the AI employees tell you.
 
 ## Technology
 
 CloudCore Networks is powered by:
 
-- **Fine-tuned small LLMs** — each character has been fine-tuned to stay in role
-- **Ollama** — local inference, no cloud dependency
-- **Character-specific system prompts** — backstory, personality traits, knowledge boundaries
-- **Conversation memory** — characters remember what you've discussed in the current session
+- **Fine-tuned small LLMs**: each character has been fine-tuned to stay in role
+- **Ollama**: local inference, no cloud dependency
+- **Character-specific system prompts**: backstory, personality traits, knowledge boundaries
+- **Conversation memory**: characters remember what you've discussed in the current session
 
-All inference runs locally. No student conversations are sent to external APIs.
+All inference runs locally. The system sends no student conversations to external APIs.
 
 ## Getting Started
 

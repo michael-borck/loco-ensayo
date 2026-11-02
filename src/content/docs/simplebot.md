@@ -21,7 +21,7 @@ answer = get_response("What is photosynthesis?")
 print(answer)
 ```
 
-One import. One function. One response. The student is talking to a model in three lines.
+The student is talking to a model in three lines.
 
 ## Personality Bots
 
@@ -35,15 +35,15 @@ teacher_bot("Explain gravity to a 10-year-old")
 coder_bot("Write a function to reverse a string")
 ```
 
-Available personalities include pirate, shakespeare, emoji, teacher, coder, and more. Each one is a thin wrapper around `get_response()` with a different system prompt — students can read the source to see exactly how it works.
+Available personalities include pirate, shakespeare, emoji, teacher, coder, and more. Each one is a thin wrapper around `get_response()` with a different system prompt, and students can read the source to see how it works.
 
 ## Local First
 
-SimpleBot defaults to a local Ollama server at `http://localhost:11434`. No API keys, no cloud accounts, no cost. Students can also point it at any OpenAI-compatible endpoint for cloud providers.
+SimpleBot defaults to a local Ollama server at `http://localhost:11434`. It needs no API keys or cloud accounts, and costs nothing. Students can also point it at any OpenAI-compatible endpoint for cloud providers.
 
 ## The Rehearsal
 
-SimpleBot is rehearsal for AI development. Students practise the fundamental interaction pattern — send a prompt, receive a response — in the simplest possible form. Once they are comfortable here, they move to [HandsOnAI](hands-on-ai.md) for more sophisticated patterns (RAG, agents), and eventually to building full applications.
+SimpleBot is rehearsal for AI development. Students practise the fundamental interaction pattern (send a prompt, receive a response) in the simplest possible form. Once they are comfortable here, they move to [HandsOnAI](hands-on-ai.md) for more sophisticated patterns (RAG, agents), and eventually to building full applications.
 
 SimpleBot is also the case study from *Ship Python, Orchestrate AI: Professional Python in the AI Era* by Michael Borck, teaching best practices for professional Python packaging alongside LLM interaction.
 

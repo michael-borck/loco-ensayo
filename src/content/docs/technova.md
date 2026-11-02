@@ -2,13 +2,13 @@
 title: "TechNova Systems"
 ---
 
-TechNova Systems is a cybersecurity incident investigation simulator. Students are briefed on a data breach at a fictional IT services company and must gather evidence, interview staff, reconstruct the attack timeline, and recommend security improvements -- all through a browser-based simulation.
+TechNova Systems is a cybersecurity incident investigation simulator. Students are briefed on a data breach at a fictional IT services company and must gather evidence, interview staff, reconstruct the attack timeline, and recommend security improvements, all through a browser-based simulation.
 
 ## The Scenario
 
 TechNova Systems is a mid-sized IT services provider with 200+ clients across Australia. A spear phishing attack has compromised an employee's credentials, leading to fraudulent invoices being sent to customers. Two customers have already lost money. Twenty-three more may be affected.
 
-Students take the role of incident investigators. Nobody hands them the answer -- they have to find it.
+Students take the role of incident investigators and have to find the answers themselves.
 
 ## How It Works
 
@@ -16,25 +16,25 @@ The simulation is a static website representing TechNova's corporate presence an
 
 ### Evidence Trail
 
-Eight discoverable pieces of evidence are distributed across the site:
+The site holds eight discoverable pieces of evidence:
 
-- **Press release** -- the company's vague public admission
-- **Customer FAQ** -- clues about fake invoices
-- **Helpdesk log** -- detailed timeline with ticket numbers
-- **Phishing email** -- with red flags for students to identify
-- **Invoice comparison** -- real vs. fraudulent side-by-side
-- **Server access logs** -- suspicious IP addresses and file downloads
-- **Security memo** -- internal analysis and recommendations
-- **Staff portal** -- hints and links connecting the evidence
+- **Press release**: the company's vague public admission
+- **Customer FAQ**: clues about fake invoices
+- **Helpdesk log**: detailed timeline with ticket numbers
+- **Phishing email**: with red flags for students to identify
+- **Invoice comparison**: real vs. fraudulent side-by-side
+- **Server access logs**: suspicious IP addresses and file downloads
+- **Security memo**: internal analysis and recommendations
+- **Staff portal**: hints and links connecting the evidence
 
 ### AI Employee Interviews
 
 Four personas with distinct knowledge and perspectives:
 
-- **Dave Wilson** (IT Support) -- technical details of the breach
-- **Sarah Mitchell** (Accounts Clerk) -- the victim's perspective
-- **Michael Torres** (Security Officer) -- analysis and recommendations
-- **James Patterson** (CEO) -- business impact and organisational response
+- **Dave Wilson** (IT Support): technical details of the breach
+- **Sarah Mitchell** (Accounts Clerk): the victim's perspective
+- **Michael Torres** (Security Officer): analysis and recommendations
+- **James Patterson** (CEO): business impact and organisational response
 
 Each persona knows what their character would know. Students must interview multiple people to build the full picture.
 
@@ -49,13 +49,13 @@ Each persona knows what their character would know. Students must interview mult
 
 ## Deployment Options
 
-- **Local** -- `python3 -m http.server 8080` for classroom use
-- **GitHub Pages** -- static hosting, no server required
-- **VPS** -- Nginx with SSL for persistent deployment
+- **Local**: `python3 -m http.server 8080` for classroom use
+- **GitHub Pages**: static hosting, no server required
+- **VPS**: Nginx with SSL for persistent deployment
 
 ## Educator Materials
 
-The simulation includes a facilitator guide with a complete answer key, assessment rubric (5-point scale), timing guidance (45--60 minutes), discussion prompts, and extension activities for advanced students.
+The simulation includes a facilitator guide with a complete answer key, assessment rubric (5-point scale), timing guidance (45 to 60 minutes), discussion prompts, and extension activities for advanced students.
 
 ## Links
 

@@ -2,7 +2,7 @@
 
 **Rehearsal platform for AI-driven teaching scenarios.**
 
-LocoEnsayo ("Loco Rehearsal") provides simulated business environments where students interact with AI-powered systems to develop professional skills. Each scenario is a self-contained rehearsal — students practice in realistic contexts without real-world consequences.
+LocoEnsayo ("Loco Rehearsal") provides simulated business environments where students interact with AI-powered systems to develop professional skills. Each scenario is a self-contained rehearsal. Students practice in realistic contexts without real-world consequences.
 
 ## Scenarios
 
@@ -14,7 +14,7 @@ A simulated ISP where students interact with AI chatbot employees to handle cust
 - **API:** [michael-borck/cloudcore-api](https://github.com/michael-borck/cloudcore-api)
 
 ### Pinnacles Travel *(coming soon)*
-A simulated travel agency scenario — details to be announced.
+A simulated travel agency scenario. Details to be announced.
 
 ## Structure
 
@@ -45,6 +45,6 @@ git submodule update --init --recursive
 
 LocoEnsayo is part of the [LocoLabo](https://locolabo.org) research group exploring local AI for education.
 
-- [LocoLLM](https://locollm.org) — Local LLM fine-tuning and routing
-- [LocoBanco](https://locobanco.org) — GPU benchmarking for small models
-- [LocoConvoy](https://lococonvoy.org) — Multi-GPU research
+- [LocoLLM](https://locollm.org): Local LLM fine-tuning and routing
+- [LocoBanco](https://locobanco.org): GPU benchmarking for small models
+- [LocoConvoy](https://lococonvoy.org): Multi-GPU research

@@ -5,16 +5,14 @@ description: How to use LocoEnsayo's AI-driven rehearsal scenarios in your teach
 
 ## Why LocoEnsayo?
 
-LocoEnsayo gives your students something case studies can't: **a conversation**. Instead of reading about an organisation, students interact with its people — AI characters who respond, deflect, elaborate, and sometimes contradict each other, just like real stakeholders.
-
-This shifts the learning from passive comprehension to active professional practice.
+LocoEnsayo gives your students a conversation. Instead of reading about an organisation, students interact with its people: AI characters who respond, deflect, elaborate, and sometimes contradict each other, just like real stakeholders.
 
 ## Privacy and Data Safety
 
 LocoEnsayo is designed with institutional deployment in mind.
 
 ### Local Inference
-All AI processing runs locally via [Ollama](https://ollama.ai). No student data, conversations, or queries are sent to external cloud services. This means:
+All AI processing runs locally via [Ollama](https://ollama.ai). The system sends no student data, conversations, or queries to external cloud services. This means:
 
 - **No student data leaves the institution**
 - **No third-party API keys required** (though BYOK options are available for educators who prefer cloud models)
@@ -22,11 +20,11 @@ All AI processing runs locally via [Ollama](https://ollama.ai). No student data,
 - **Full institutional control** over the AI infrastructure
 
 ### BYOK (Bring Your Own Key)
-For educators who want to use commercial models (OpenAI, Anthropic, etc.), LocoEnsayo supports a BYOK configuration. Students or institutions provide their own API keys. This is optional — the default is always local inference.
+For educators who want to use commercial models (OpenAI, Anthropic, etc.), LocoEnsayo supports a BYOK configuration. Students or institutions provide their own API keys. This is optional. The default is always local inference.
 
 ## Mapping to Learning Outcomes
 
-LocoEnsayo scenarios are designed to align with common unit learning outcomes across multiple disciplines.
+LocoEnsayo scenarios are designed around common unit learning outcomes across multiple disciplines.
 
 ### Information Systems
 - Requirements elicitation through stakeholder interviews
@@ -66,10 +64,10 @@ Frame an assessment task around the scenario. For example:
 - *"Conduct a business analysis of CloudCore's service delivery process"*
 
 ### 3. Brief Your Students
-Students need to understand that the AI characters are **playing a role**, not providing answers. The value is in the conversation — asking good questions, following up, cross-referencing what different people say.
+Students need to understand that the AI characters are playing a role. They do not provide answers. The conversation does the work: asking good questions, following up, cross-referencing what different people say.
 
 ### 4. Assess the Analysis, Not the Transcript
-What matters is what students do with the information, not the raw conversations. Assess their analysis, recommendations, and professional judgement.
+Assess what students do with the information. The raw conversations are the input, and the analysis, recommendations, and professional judgement are the output.
 
 ## Disciplines Covered
 

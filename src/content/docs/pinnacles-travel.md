@@ -5,7 +5,7 @@ description: An upcoming simulated event planning company scenario for hospitali
 
 ## Overview
 
-Pinnacle Events is the next scenario coming to LocoEnsayo — a simulated event planning and management company based in Perth, with AI employees, designed for hospitality, tourism, and event management education.
+Pinnacle Events is the next scenario coming to LocoEnsayo, a simulated event planning and management company based in Perth, with AI employees, designed for hospitality, tourism, and event management education.
 
 :::note
 Pinnacles Travel is currently in development. This page will be updated as the scenario takes shape.
@@ -38,7 +38,7 @@ Pinnacle Events will use the same local-inference architecture as CloudCore Netw
 
 - Fine-tuned small language models for each character
 - Ollama for local inference
-- Privacy-first design — no student data leaves the institution
+- Privacy-first design: no student data leaves the institution
 
 ## Get Involved
 

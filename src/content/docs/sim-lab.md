@@ -5,7 +5,7 @@ description: "Simulation toolkit for modelling complex systems — business, eco
 
 ## Overview
 
-SimLab is a comprehensive simulation toolkit for modelling complex systems across multiple domains. Students run, configure, and analyse simulations through a unified interface — CLI, terminal UI, web, or Python API.
+SimLab is a simulation toolkit for modelling complex systems across multiple domains. Students run, configure, and analyse simulations through one interface: CLI, terminal UI, web, or Python API.
 
 **GitHub:** [michael-borck/sim-lab](https://github.com/michael-borck/sim-lab)
 **Install:** `pip install sim-lab`
@@ -43,7 +43,7 @@ All interfaces share the same simulation engine. Students can start with the CLI
 
 ## The Rehearsal
 
-SimLab is rehearsal for systems thinking. Students don't just learn *about* complex systems — they build models, adjust parameters, and observe what happens. A stock market simulation with different volatility settings teaches more about risk than a textbook definition. An SIR model with adjustable transmission rates makes epidemiology tangible.
+SimLab is rehearsal for systems thinking. Students learn about complex systems by building models, adjusting parameters, and observing what happens. A stock market simulation with different volatility settings teaches more about risk than a textbook definition. An SIR model with adjustable transmission rates makes epidemiology tangible.
 
 The simulation registry system teaches software design patterns: dynamic discovery, consistent APIs across different model types, and parameter validation. Students writing their own simulations learn to extend a well-designed framework.
 
@@ -51,12 +51,12 @@ The simulation registry system teaches software design patterns: dynamic discove
 
 SimLab crosses traditional faculty boundaries:
 
-- **Information Systems** — supply chain and queueing models
-- **Marketing** — product popularity and market dynamics
-- **Management** — resource allocation and scenario planning
-- **Science** — ecological and epidemiological models
-- **Statistics** — Monte Carlo and Markov chain methods
+- **Information Systems**: supply chain and queueing models
+- **Marketing**: product popularity and market dynamics
+- **Management**: resource allocation and scenario planning
+- **Science**: ecological and epidemiological models
+- **Statistics**: Monte Carlo and Markov chain methods
 
 ## Part of LocoEnsayo
 
-LocoEnsayo covers two types of rehearsal: professional skills (talking *to* AI characters) and AI development (learning to *build* and model systems). SimLab sits alongside [SimpleBot](simplebot.md) and [HandsOnAI](hands-on-ai.md) in the development toolkit — a different kind of rehearsal, focused on understanding complex systems through simulation rather than conversation.
+LocoEnsayo covers two types of rehearsal: professional skills (talking *to* AI characters) and AI development (learning to *build* and model systems). SimLab sits alongside [SimpleBot](simplebot.md) and [HandsOnAI](hands-on-ai.md) in the development toolkit. It is a different kind of rehearsal, focused on understanding complex systems through simulation.
