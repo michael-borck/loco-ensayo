@@ -2,6 +2,8 @@
 
 **Rehearsal platform for AI-driven teaching scenarios.**
 
+**Site:** [locoensayo.org](https://locoensayo.org)
+
 LocoEnsayo ("Loco Rehearsal") provides simulated business environments where students interact with AI-powered systems to develop professional skills. Each scenario is a self-contained rehearsal. Students practice in realistic contexts without real-world consequences.
 
 ## Scenarios

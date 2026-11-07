@@ -20,3 +20,6 @@ dist/
 # Quarto
 _site/
 .quarto/
+
+# macOS + Node hygiene
+._*
