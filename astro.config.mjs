@@ -13,10 +13,9 @@ export default defineConfig({
         home: 'https://locoensayo.org',
         github: 'loco-ensayo',
         accent: { low: '#1a1502', main: '#eab308', high: '#fef3c7' },
-        favicon: '/favicon.svg',
         logo: {
           alt: 'LocoEnsayo',
-          src: './src/assets/ensayo.svg',
+          src: './src/assets/art/icon.png',
           replacesTitle: false,
         },
         customCss: ['./src/styles/custom.css'],
